@@ -10,6 +10,7 @@ import audio_concat from './audio_concat.js';
 
 let version = 'esv';
 let directory_path = `/Users/jaredmathis/bible/audio/esv`;
+let generate_books = false;
 
 let books = {};
 let files = directory_files_absolute(directory_path, [])
@@ -26,8 +27,10 @@ for_each(files, f => {
     books[book].push(f);
 })
 
-for_each_async(keys(books), async book => {
-    let chapters = books[book];
-    audio_concat(chapters, `books/${version}_${book}.mp3`)
-})
+if (generate_books) {
+    for_each(keys(books), book => {
+        let chapters = books[book];
+        audio_concat(chapters, `books/${version}_${book}.mp3`)
+    })
+}
 
