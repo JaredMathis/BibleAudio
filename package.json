@@ -1,0 +1,6 @@
+{
+  "type": "module",
+  "dependencies": {
+    "audioconcat": "^0.1.4"
+  }
+}
