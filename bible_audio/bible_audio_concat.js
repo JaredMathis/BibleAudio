@@ -28,6 +28,6 @@ for_each(files, f => {
 
 for_each_async(keys(books), async book => {
     let chapters = books[book];
-    audio_concat(chapters, `${version}_${book}.mp3`)
+    audio_concat(chapters, `books/${version}_${book}.mp3`)
 })
 
