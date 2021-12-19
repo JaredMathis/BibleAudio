@@ -2,12 +2,13 @@ import audioconcat from 'audioconcat';
 import directory_files_absolute from './../core/directory_files_absolute.js';
 
 let version = 'esv';
-let directory_nt = '/Users/jaredmathis/bible/audio/esv/English_English_Standard_Version____NT_Drama'
+let testament = 'ot';
+let directory_path = `/Users/jaredmathis/bible/audio/esv/English_English_Standard_Version____${testament.toUpperCase()}_Drama`;
 
-let files_nt = directory_files_absolute(directory_nt, [])
+let files = directory_files_absolute(directory_path, [])
 
-  audioconcat(files_nt)
-    .concat(`${version}_nt.mp3`)
+  audioconcat(files)
+    .concat(`${version}_${testament}.mp3`)
     .on('start', function (command) {
       console.log('ffmpeg process started:', command)
     })
